@@ -1,17 +1,13 @@
-@(title: Html, nav: String = "")(content: Html)
+@(title: String)(extraHead: Html = Html(""))(content: Html)
 
 <!DOCTYPE html>
 
 <html>
 	<head>
-    	<title>@title</title>
+    	<title>Eiwomisa - @title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/dijit/themes/claro/claro.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <style type="text/css">html, body {
-		    width: 100%;
-		    height: 100%;
-		    margin: 0;
-		}</style>
 		
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/dojox/grid/resources/claroGrid.css")">
 		<style type="text/css">
@@ -20,6 +16,8 @@
 			#grid {
 			    height: 20em;
 			}</style>
+			
+		@extraHead
 
     </head>
     <body class="claro">
@@ -31,6 +29,7 @@
 		    </div>
 		     
 		    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">@content</div>
+		    
 		    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">Bottom pane</div>
 		</div>
 		
