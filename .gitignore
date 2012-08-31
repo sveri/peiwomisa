@@ -1,3 +1,13 @@
+logs
+project/project
+project/target
+target
+.target
+tmp
+.history
+dist
+.classpath
+
 *.class
 
 # Package Files #
