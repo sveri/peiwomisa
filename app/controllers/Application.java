@@ -35,8 +35,8 @@ public class Application extends Controller {
 //    	    result.put("message", "Missing parameter [name]");
 //    	    return badRequest(result);
 //    	  } else {
-    	    result.put("status", "OK");
-    	    result.put("message", "Hello ");
+    	    result.put("name", "Test");
+//    	    return ok(result);
     	    return ok(Json.toJson(tasks));
 //    	  }
     	}

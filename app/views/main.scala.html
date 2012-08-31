@@ -5,17 +5,21 @@
 <html>
 	<head>
     	<title>Eiwomisa - @title</title>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/dijit/themes/claro/claro.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-		
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/dojox/grid/resources/claroGrid.css")">
+
 		<style type="text/css">
 
 			/*Grid needs an explicit height by default*/
 			#grid {
 			    height: 20em;
 			}</style>
+			
+		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js" data-dojo-config="isDebug:1, 
+			async:1, parseOnLoad: true"></script>
 			
 		@extraHead
 
@@ -34,51 +38,12 @@
 		</div>
 		
 		
-		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js" data-dojo-config="isDebug:1, 
-			async:1, parseOnLoad: true"></script>
-		<script>require(['dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore',
-                 "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", 
+		<script>
+		require(['dojo/_base/lang', "dijit/layout/BorderContainer", "dijit/layout/ContentPane", 
                 "dijit/layout/AccordionContainer", "dijit/layout/AccordionPane", "dojo/dom", "dojo/domReady!"],
-        	    function(lang, DataGrid, ItemFileWriteStore, dom){
-			
-		    /*set up data store*/
-		    var data = {
-		      identifier: "id",
-		      items: []
-		    };
-		    var data_list = [
-		      { col1: "normal", col2: false, col3: 'But are not followed by two hexadecimal', col4: 29.91},
-		      { col1: "important", col2: false, col3: 'Because a % sign always indicates', col4: 9.33},
-		      { col1: "important", col2: false, col3: 'Signs can be selectively', col4: 19.34}
-		    ];
-		    var rows = 60;
-		    for(var i = 0, l = data_list.length; i < rows; i++){
-		        data.items.push(lang.mixin({ id: i+1 }, data_list[i%l]));
-		    }
-		    var store = new ItemFileWriteStore({data: data});
-		
-		    /*set up layout*/
-		    var layout = [[
-		      {'name': 'Column 1', 'field': 'id', 'width': '100px'},
-		      {'name': 'Column 2', 'field': 'col2', 'width': '100px'},
-		      {'name': 'Column 3', 'field': 'col3', 'width': '200px'},
-		      {'name': 'Column 4', 'field': 'col4', 'width': '150px'}
-		    ]];
-		
-		    /*create a new grid*/
-		    var grid = new DataGrid({
-		        id: 'grid',
-		        store: store,
-		        structure: layout,
-		        rowSelector: '20px'});
-		
-		        /*append the new grid to the div*/
-		        grid.placeAt("gridDiv");
-		
-		        /*Call startup() to render the grid*/
-		        grid.startup();
-		        }
-		);</script>
+       	    function(lang, DataGrid, ItemFileWriteStore, dom){
+        });
+		</script>
                 
 	</body>
 </html>
